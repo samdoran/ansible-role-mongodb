@@ -1,0 +1,6 @@
+mongodb_version: 3.4
+mongodb_port: 27017
+mongodb_shardsvr_port: 27018
+mongodb_configsvr_port: 27019
+mongodb_webstatus_port: 28017
+mongodb_disable_selinux: no
