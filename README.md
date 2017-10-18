@@ -8,20 +8,28 @@ Install and configure [MongoDB](https://www.mongodb.com).
 Requirements
 ------------
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+For managing SELinux, the following packages are required:
+
+- `policycoreutils-python`
+- `libselinux-python`
 
 Role Variables
 --------------
 
 | Name              | Default Value       | Description          |
 |-------------------|---------------------|----------------------|
-| `` | `` |  |
+| `mongodb_version` | `3.4` | The version of MongoDB to install |
+| `mongodb_port` | `27017` | Default port for MongoDB instances |
+| `mongodb_shardsvr_port` | `27018` |  |
+| `mongodb_configsvr_port` | `27019` |  |
+| `mongodb_webstatus_port` | `28017` |  |
+| `mongodb_disable_selinux` | `no` | Whether or not to disable SELinux (**not recommended**). The role will properly configure the system to work with SELinux enabled. |
 
 
 Dependencies
 ------------
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+None
 
 Example Playbook
 ----------------
