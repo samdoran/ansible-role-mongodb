@@ -7,7 +7,6 @@
     enabled: yes
     gpgkey: https://www.mongodb.org/static/pgp/server-{{ mongodb_version }}.asc
   tags:
-    - mongodb
     - mongodb_yum
     - mongodb_yum_repo
 
@@ -16,7 +15,6 @@
     name: "{{ mongodb_packages }}"
     state: present
   tags:
-    - mongodb
     - mongodb_yum
 
 - name: RHEL | Set permissions and SELinux context on log and data directories
@@ -32,7 +30,6 @@
     - path: "{{ mongodb_log_dir }}"
       type: mongod_log_t
   tags:
-    - mongodb
     - mongodb_config
     - mongodb_selinux
 
@@ -47,7 +44,6 @@
     - ansible_selinux.status == 'enabled'
     - ansible_selinux.mode == 'enforcing'
   tags:
-    - mongodb
     - mongodb_selinux
 
 - name: RHEL | Disable SELinux
@@ -58,7 +54,6 @@
     - reboot system
     - wait for system to come back up
   tags:
-    - mongodb
     - mongodb_selinux
 
 - meta: flush_handlers
