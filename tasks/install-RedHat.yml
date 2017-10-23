@@ -45,6 +45,7 @@
     - ansible_selinux.mode == 'enforcing'
   tags:
     - mongodb_selinux
+    - skipci
 
 - name: RHEL | Disable SELinux
   selinux:
@@ -55,5 +56,6 @@
     - wait for system to come back up
   tags:
     - mongodb_selinux
+    - skipci
 
 - meta: flush_handlers
