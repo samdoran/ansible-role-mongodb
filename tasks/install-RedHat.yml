@@ -4,7 +4,7 @@
     description: MongoDB Repository
     name: mongodb-org-{{ mongodb_version }}
     file: mongodb
-    enabled: yes
+    enabled: true
     gpgkey: https://www.mongodb.org/static/pgp/server-{{ mongodb_version }}.asc
   tags:
     - mongodb_yum

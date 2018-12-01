@@ -40,7 +40,7 @@
 - name: Start and enable mongo
   service:
     name: "{{ mongodb_service_name }}"
-    enabled: yes
+    enabled: true
     state: started
   tags:
     - mongodb
