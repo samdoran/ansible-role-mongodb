@@ -1,4 +1,5 @@
 galaxy_info:
+  role_name: mongodb
   author: Sam Doran
   description: Install and configure MongoDB
   company: Ansible by Red Hat
