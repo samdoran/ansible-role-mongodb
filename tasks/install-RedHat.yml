@@ -1,10 +1,10 @@
 - name: RHEL | Add mongo repository
   yum_repository:
-    baseurl: https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/{{ mongodb_version }}/{{ ansible_architecture }}/
+    baseurl: https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/{{ mongodb_version }}/{{ ansible_facts.architecture }}/
     description: MongoDB Repository
     name: mongodb-org-{{ mongodb_version }}
     file: mongodb
-    enabled: true
+    enabled: yes
     gpgkey: https://www.mongodb.org/static/pgp/server-{{ mongodb_version }}.asc
   tags:
     - mongodb_yum
@@ -22,7 +22,7 @@
     path: "{{ item.path }}"
     owner: "{{ mongodb_user }}"
     group: "{{ mongodb_user }}"
-    mode: 0755
+    mode: '0755'
     setype: "{{ item.type }}"
   with_items:
     - path: "{{ mongodb_data_dir }}"
@@ -41,8 +41,8 @@
     state: present
   when:
     - not mongodb_disable_selinux
-    - ansible_selinux.status == 'enabled'
-    - ansible_selinux.mode == 'enforcing'
+    - ansible_facts.selinux.status == 'enabled'
+    - ansible_facts.selinux.mode == 'enforcing'
   tags:
     - mongodb_selinux
     - skipci
