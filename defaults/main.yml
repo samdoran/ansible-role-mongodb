@@ -11,3 +11,4 @@ config_pid_file: mongod-config
 # Config file options
 mongodb_bind_all: no
 mongodb_bind_ip: 127.0.0.1
+

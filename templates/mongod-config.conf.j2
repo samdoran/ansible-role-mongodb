@@ -1,7 +1,9 @@
+#jinja2: lstrip_blocks: True
+# {{ ansible_managed }}
 systemLog:
   destination: file
   logAppend: true
-  path:  {{ mongod-config_log_file }}
+  path: {{ mongodb_log_dir }}/config
 
 storage:
   dbPath: {{ mongodb_data_dir }}/config
@@ -11,16 +13,16 @@ storage:
 # Cluster: {{ replSetName }}
 # useRepSetConfig: true
 # region: us-east-1
-  engine: wiredTiger
+# engine: wiredTiger
 
 processManagement:
   fork: true
-  pidFilePath: {{ mongodb-config_pid_file }}
+  pidFilePath: {{ mongodb_pid_path }}/mongod-config.pid
 
 net:
-  port: {{ mongod-config_port }}
-  {% if not mongod-config_bind_all %}
-  bindIp: {{ mongod-config_bind_ip }}
+  port: {{ mongodb_configsvr_port }}
+  {% if not mongod__bind_all %}
+  bindIp: {{ mongodb_bind_ip }}
   {% endif %}
   bindIpAll: true
 

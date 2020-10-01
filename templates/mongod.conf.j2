@@ -16,7 +16,7 @@ storage:
 
 processManagement:
   fork: true
-  pidFilePath: {{ mongodb_pid_file }}
+  pidFilePath: {{ mongodb_pid_path }}/mongod.pid
 
 net:
   port: {{ mongodb_port }}
