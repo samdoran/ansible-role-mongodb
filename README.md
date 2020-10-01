@@ -22,6 +22,7 @@ Role Variables
 | `mongodb_port` | `27017` | Default port for `mongod` and `mongos` instances |
 | `mongodb_shardsvr_port` | `27018` | Default port when running `shardsvr` |
 | `mongodb_configsvr_port` | `27019` | Default port when running `configsvr` |
+| `config_repl_setName` | `cfg1.example.net:27019, cfg2.example.net:27019, cfg3.example.net:27019` | Comma separated list  |
 | `mongodb_webstatus_port` | `28017` | Default port for web status page |
 | `mongodb_disable_selinux` | `false` | Whether or not to disable SELinux (**not recommended**). The role will properly configure the system to work with SELinux enabled. |
 | `mongdb_days_of_logs_to_keep` | `30` | How manys days of logs to keep. |
