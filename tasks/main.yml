@@ -33,7 +33,7 @@
 - name: Copy mongod-config.conf
   template:
     src: mongod-config.conf.j2
-    dest: "{{ mongodb-config_file }}"
+    dest: "{{ mongodb_config_server_file }}"
     owner: root
     group: root
     mode: '0644'
