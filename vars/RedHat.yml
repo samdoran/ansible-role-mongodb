@@ -4,7 +4,6 @@ mongodb_selinux_ports: "{{ mongodb_port ~ ',' ~ mongodb_shardsvr_port ~ ',' ~ mo
 mongodb_service_name: mongod
 mongodb_user: mongod
 mongodb_group: mongod
-
 # Config file options
 mongodb_config_file: /etc/mongod.conf
 mongodb_data_dir: /var/lib/mongo
