@@ -21,7 +21,7 @@ processManagement:
 
 net:
   port: {{ mongodb_configsvr_port }}
-  {% if not mongod__bind_all %}
+  {% if not mongod_bind_all %}
   bindIp: {{ mongodb_bind_ip }}
   {% endif %}
   bindIpAll: true
