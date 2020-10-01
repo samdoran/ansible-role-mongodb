@@ -6,7 +6,8 @@ config_repl_set_name: 'cfg1.example.net:27019, cfg2.example.net:27019, cfg3.exam
 mongodb_webstatus_port: 28017
 mongodb_disable_selinux: no
 mongdb_days_of_logs_to_keep: 30
-
+replSetNam: db01
+config_pid_file: mongod-config
 # Config file options
 mongodb_bind_all: no
 mongodb_bind_ip: 127.0.0.1

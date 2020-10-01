@@ -1,14 +1,14 @@
 systemLog:
   destination: file
   logAppend: true
-  path:  {{ mongodb_log_file }}
+  path:  {{ mongod-config_log_file }}
 
 storage:
   dbPath: {{ mongodb_data_dir }}/config
   journal:
     enabled: true
 
-# Cluster: {{ cluster_name }}
+# Cluster: {{ replSetName }}
 # useRepSetConfig: true
 # region: us-east-1
   engine: wiredTiger
@@ -18,11 +18,11 @@ processManagement:
   pidFilePath: {{ mongodb-config_pid_file }}
 
 net:
-  port: {{ mongodb_port }}
-  {% if not mongodb_bind_all %}
-  bindIp: {{ mongodb_bind_ip }}
+  port: {{ mongod-config_port }}
+  {% if not mongod-config_bind_all %}
+  bindIp: {{ mongod-config_bind_ip }}
   {% endif %}
   bindIpAll: true
 
 replication:
-   replSetName: {{ replSetName }}
+   replSetName: {{ replSetName }}-config
