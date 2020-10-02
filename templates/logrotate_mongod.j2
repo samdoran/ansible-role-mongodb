@@ -10,6 +10,6 @@
     sharedscripts
     copytruncate
     postrotate
-        /bin/kill -SIGUSR1 $(cat {{ mongodb_pid_file }} 2> /dev/null) 2> /dev/null || true
+        /bin/kill -SIGUSR1 $(cat {{ mongodb_pid_path }}/mongodb.pid 2> /dev/null) 2> /dev/null || true
     endscript
 }
