@@ -13,7 +13,7 @@
 
 - name: restart mongodb-config
   service:
-    name: "{{ mongodb-config_service_name }}"
+    name: mongodb-config
     state: restarted
 
 - name: restart mongodb

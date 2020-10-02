@@ -37,7 +37,6 @@
     owner: root
     group: root
     mode: '0644'
-  notify: restart mongod-config
   tags:
     - mongodb
     - mongodb_config
@@ -77,10 +76,10 @@
 
 - name: Start and enable mongo-config
   systemd:
-    name: "{{ mongodb-config_service_name }}"
-    notify: restart mongodb-config
-    state: started
+    name: mongo-config
+    enabled: yes
     daemon_reexec: yes
+    state: started
   tags:
     - mongodb
     - mongodb_service
