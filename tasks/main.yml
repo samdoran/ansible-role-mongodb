@@ -76,10 +76,11 @@
     - mongodb_config
 
 - name: Start and enable mongo-config
-  service:
+  systemd:
     name: "{{ mongodb-config_service_name }}"
     enabled: yes
     state: started
+    daemon_reexec: yes
   tags:
     - mongodb
     - mongodb_service
