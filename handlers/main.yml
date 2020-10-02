@@ -11,6 +11,11 @@
     delay: 15
   delegate_to: localhost
 
+- name: restart mongodb-config
+  service:
+    name: "{{ mongodb-config_service_name }}"
+    state: restarted
+
 - name: restart mongodb
   service:
     name: "{{ mongodb_service_name }}"
