@@ -18,5 +18,5 @@
 
 - name: restart mongodb
   service:
-    name: "{{ mongodb_service_name }}"
+    name: mongodb
     state: restarted
