@@ -18,9 +18,20 @@
   tags:
     - mongodb
 
-- name: Copy mongod.conf
+- name: Copy mongod-config.conf
   template:
-    src: mongod.conf.j2
+    src: mongod-config.conf.j2
+    dest: "{{ mongod_config_server_file }}"
+    owner: root
+    group: root
+    mode: '0644'
+  tags:
+    - mongodb
+    - mongodb_config
+
+- name: Copy mongodb.conf
+  template:
+    src: mongodb.conf.j2
     dest: "{{ mongodb_config_file }}"
     owner: root
     group: root
@@ -30,10 +41,10 @@
     - mongodb
     - mongodb_config
 
-- name: Copy mongod-config.conf
+- name: Copy logrotate mongodb file
   template:
-    src: mongod-config.conf.j2
-    dest: "{{ mongodb_config_server_file }}"
+    src: logrotate_mongodb.j2
+    dest: /etc/logrotate.d/mongodb
     owner: root
     group: root
     mode: '0644'
@@ -41,18 +52,7 @@
     - mongodb
     - mongodb_config
 
-- name: Copy logrotate config file
-  template:
-    src: logrotate_mongod.j2
-    dest: /etc/logrotate.d/mongod
-    owner: root
-    group: root
-    mode: '0644'
-  tags:
-    - mongodb
-    - mongodb_config
-
-- name: Copy logrotate mongo-config file
+- name: Copy logrotate mongod-config file
   template:
     src: logrotate_mongod-config.j2
     dest: /etc/logrotate.d/mongod-config
@@ -63,10 +63,10 @@
     - mongodb
     - mongodb_config
 
-- name: Copy mongo-config init file
+- name: Copy mongod-config init file
   template:
-    src: mongod-config.init.j2
-    dest: /etc/init.d/mongod-config
+    src: mongod-config.init.sh.j2
+    dest: /etc/init.d/mongo-config
     owner: root
     group: root
     mode: '0755'
@@ -84,16 +84,7 @@
     - mongodb
     - mongodb_service
 
-- name: Start and enable mongo
-  service:
-    name: "{{ mongodb_service_name }}"
-    enabled: yes
-    state: started
-  tags:
-    - mongodb
-    - mongodb_service
-
-- name: Start and enable mongo
+- name: Start and enable mongodb
   service:
     name: "{{ mongodb_service_name }}"
     enabled: yes
