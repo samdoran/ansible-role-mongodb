@@ -36,7 +36,7 @@
     owner: root
     group: root
     mode: '0644'
-  notify: restart mongodb
+#  notify: restart mongodb
   tags:
     - mongodb
     - mongodb_config
