@@ -78,7 +78,7 @@
   systemd:
     name: mongo-config
     enabled: yes
-    daemon_reexec: yes
+    daemon_reload: yes
     state: started
   tags:
     - mongodb
