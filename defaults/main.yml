@@ -16,3 +16,9 @@ mongodb_bind_ip: 127.0.0.1
 # mongodb_wiredTiger_engineConfig_directoryForIndexes: <boolean>
 # mongodb_wiredTiger_collectionConfig_blockCompressor: <string>
 # mongodb_wiredTiger_indexConfig_prefixCompression: <boolean>
+
+# Replication
+# mongodb_replication_oplogSizeMB: <int>
+# mongodb_replication_replSetName: <string>
+# mongodb_replication_secondaryIndexPrefetch: <string>
+# mongodb_replication_enableMajorityReadConcern: <boolean>
