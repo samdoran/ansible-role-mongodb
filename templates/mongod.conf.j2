@@ -12,7 +12,49 @@ storage:
     enabled: true
 #  engine:
 #  mmapv1:
-#  wiredTiger:
+{% if 
+  mongodb_wiredTiger_engineConfig_cacheSizeGB is defined or
+  mongodb_wiredTiger_engineConfig_journalCompressor is defined or
+  mongodb_wiredTiger_engineConfig_directoryForIndexes is defined or
+  mongodb_wiredTiger_collectionConfig_blockCompressor is defined or
+  mongodb_wiredTiger_indexConfig_prefixCompression is defined
+%}
+  wiredTiger:
+{% if 
+  mongodb_wiredTiger_engineConfig_cacheSizeGB is defined or
+  mongodb_wiredTiger_engineConfig_journalCompressor is defined or
+  mongodb_wiredTiger_engineConfig_directoryForIndexes is defined
+%}
+    engineConfig:
+{% if 
+  mongodb_wiredTiger_engineConfig_cacheSizeGB is defined
+%}
+      cacheSizeGB: {{ mongodb_wiredTiger_engineConfig_cacheSizeGB }}
+{% endif %}
+{% if 
+  mongodb_wiredTiger_engineConfig_journalCompressor is defined
+%}
+      journalCompressor: {{ mongodb_wiredTiger_engineConfig_journalCompressor }}
+{% endif %}
+{% if 
+  mongodb_wiredTiger_engineConfig_directoryForIndexes is defined 
+%}
+      directoryForIndexes: {{ mongodb_wiredTiger_engineConfig_directoryForIndexes }}
+{% endif %}
+{% endif %}
+{% if 
+  mongodb_wiredTiger_collectionConfig_blockCompressor is defined
+%}
+    collectionConfig:
+        blockCompressor: {{ mongodb_wiredTiger_collectionConfig_blockCompressor }}
+{% endif %}
+{% if 
+  mongodb_wiredTiger_indexConfig_prefixCompression is defined
+%}
+    indexConfig:
+        prefixCompression: {{ mongodb_wiredTiger_indexConfig_prefixCompression }}
+{% endif %}
+{% endif %}
 
 processManagement:
   fork: true

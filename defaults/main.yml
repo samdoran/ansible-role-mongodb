@@ -9,3 +9,10 @@ mongdb_days_of_logs_to_keep: 30
 # Config file options
 mongodb_bind_all: no
 mongodb_bind_ip: 127.0.0.1
+
+# Storage engine options
+# mongodb_wiredTiger_engineConfig_cacheSizeGB: <number>
+# mongodb_wiredTiger_engineConfig_journalCompressor: <string>
+# mongodb_wiredTiger_engineConfig_directoryForIndexes: <boolean>
+# mongodb_wiredTiger_collectionConfig_blockCompressor: <string>
+# mongodb_wiredTiger_indexConfig_prefixCompression: <boolean>
