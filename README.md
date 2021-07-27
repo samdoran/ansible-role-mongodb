@@ -1,7 +1,6 @@
 MongoDB
 =========
 [![Galaxy](https://img.shields.io/badge/galaxy-samdoran.mongodb-blue.svg?style=flat)](https://galaxy.ansible.com/samdoran/mongodb)
-[![Build Status](https://travis-ci.com/samdoran/ansible-role-mongodb.svg?branch=master)](https://travis-ci.com/samdoran/ansible-role-mongodb)
 
 Install and configure [MongoDB](https://www.mongodb.com).
 
